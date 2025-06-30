@@ -72,7 +72,6 @@ export default function Login() {
                 className="bg-dark-slate border-gray-600 text-light-slate placeholder-gray-400 focus:ring-primary-indigo focus:border-primary-indigo"
                 required
               />
-              <p className="text-xs text-gray-500 mt-1">Use: ASDF2025 for demo access</p>
             </div>
             
             <Button

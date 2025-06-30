@@ -8,6 +8,7 @@ import fs from "fs";
 import {promisify} from "util";
 import {execSync} from "child_process";
 import {streamLimiter} from "./rateLimit.ts";
+import * as process from "node:process";
 
 const stat = promisify(fs.stat);
 
@@ -69,7 +70,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.post('/api/login', (req, res) => {
         const {secretKey} = req.body;
 
-        if (secretKey === 'ASDF2025') {
+        if (secretKey === process.env.KEY) {
             (req.session as any).authenticated = true;
             res.json({success: true, message: 'Login successful'});
         } else {
