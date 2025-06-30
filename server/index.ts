@@ -75,8 +75,8 @@ if (cluster.isPrimary) {
       serveStatic(app);
     }
 
-      server.listen(port, "127.0.0.1", () => {
-          log(`Worker ${process.pid} serving on port ${port}`);
-      });
+    server.listen(port, () => {
+      log(`Worker ${process.pid} serving on port ${port}`);
+    });
   })();
 }
