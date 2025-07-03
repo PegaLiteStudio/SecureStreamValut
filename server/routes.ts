@@ -340,11 +340,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
                 file.pipe(res);
             } else {
-                res.writeHead(200, {
+                const start = 0;
+                const end = fileSize - 1;
+
+                res.writeHead(206, {
                     ...baseHeaders,
+                    'Content-Range': `bytes ${start}-${end}/${fileSize}`,
                     'Content-Length': fileSize,
                 });
-
                 const stream = fs.createReadStream(videoPath);
 
                 // Track bandwidth
