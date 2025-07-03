@@ -200,7 +200,7 @@ export default function UploadModal({ open, onClose, currentFolderId }: UploadMo
             <p className="text-gray-400 mb-4">or click to browse files</p>
             <Input
               type="file"
-              accept="video/*"
+              accept=".mp4,.webm,.ogg,.mkv,.mov,.avi"
               onChange={handleFileChange}
               className="hidden"
               id="videoFile"
